@@ -6,12 +6,17 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:server": "tsc server/index.ts --outDir dist/server --target es2020 --module commonjs",
+    "build:full": "npm run build && npm run build:server",
+    "start": "node server/index.js",
     "preview": "vite preview",
     "test": "vitest --run",
     "test:watch": "vitest",
     "lint": "tsc --noEmit",
     "test:e2e": "playwright test",
-    "dev:server": "tsx server/index.ts"
+    "dev:server": "tsx server/index.ts",
+    "backup": "bash scripts/backup.sh",
+    "deploy": "bash scripts/deploy.sh"
   },
   "dependencies": {
     "cors": "^2.8.5",
